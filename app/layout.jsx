@@ -5,21 +5,23 @@ import Provider from '@components/provider'
 
 export const metadata = {
   title: "Promptopia",
-  description: 'Discover & Share AI Prompts'
+  description: 'Descubra & Compartilhe AI Prompts'
 }
 
 const Layout = ({ children }) => {
   return (
     <html lang='pt-br'>
       <body>
-        <div className='main'>
-          <div className='gradient' />
-        </div>
-
-        <main className='app'>
-          <Nav />
-          {children}
-        </main>
+        <Provider>
+          <div className='main'>
+            <div className='gradient' />
+          </div>
+          
+          <main className='app'>
+            <Nav />
+            {children}
+          </main>
+        </Provider>
       </body>
     </html>
   )
