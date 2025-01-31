@@ -14,7 +14,7 @@ const handler = NextAuth({
   
   callbacks: {
     async session({ session }) { // Manter sessão
-      const sessionUser = await User.findOne({
+      const sessionUser = await User.findOne({ // Há 1 erro aqui pois nada é feito quando entro em uma página protegida sem estar logado além de dar erro
         email: session.user.email
       })
   
