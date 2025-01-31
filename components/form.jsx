@@ -7,10 +7,6 @@ const Form = ({ type, post, setPost, submitting, handleSubmit}) => {
         <span className="blue_gradient">{type} Post</span>
       </h1>
 
-      <p className="desc text-left max-w-md">
-        Crie e compartilhe prompts com o mundo e em qualquer plataforma IA.
-      </p>
-
       <form
         className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism"
         onSubmit={handleSubmit}

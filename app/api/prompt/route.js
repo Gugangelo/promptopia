@@ -7,7 +7,7 @@ export const GET = async (req) => {
 
     const prompts = await Prompt.find({}).populate('creator')
 
-    return new Response(JSON.stringify(prompts), { status: 200 }) // 201 é status de OK
+    return new Response(JSON.stringify(prompts), { status: 200 }) // 200 é status de OK
   } catch (error) {
     return new Response("Falha ao pesquisar.", { status: 500 }) // 500 é erro no servidor
   }
