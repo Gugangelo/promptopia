@@ -14,7 +14,7 @@ const CreatePrompt = () => {
   const [submitting, setSubmitting] = useState(false)
   const [post, setPost] = useState({
     prompt: '',
-    tag: ''
+    tag: []
   })
 
   const createPrompt = async (e) => {
@@ -22,12 +22,15 @@ const CreatePrompt = () => {
     setSubmitting(true)
 
     try {
+      console.log(post.tag)
+      console.log(post.tag.trim().split(/\s+/))
       const response = await fetch('/api/prompt/new', {
         method: 'POST',
         body: JSON.stringify({
           prompt: post.prompt,
           userId: session?.user.id,
-          tag: post.tag
+          // tag: post.tag
+          tag: post.tag.trim().split(/\s+/)
         })
       })
 
