@@ -18,6 +18,29 @@ const PromptCardList = ({ data, handleTagClick }) => {
   )
 }
 
+const fakePosts = [
+  {
+    _id: "fake1",
+    creator: {
+      username: "John Doe",
+      email: "johndoe@example.com",
+      image: "https://i.pravatar.cc/150?img=1"
+    },
+    prompt: "Gere exemplos de textos motivacionais sobre produtividade utilizando metáforas.",
+    tag: ["motivação", "produtividade", "discurso"]
+  },
+  {
+    _id: "fake2",
+    creator: {
+      username: "Anna Writer",
+      email: "annawriter@example.com",
+      image: "https://i.pravatar.cc/150?img=5"
+    },
+    prompt: "Crie uma descrição poética sobre o universo utilizando linguagem simples.",
+    tag: ["poesia"]
+  }
+];
+
 const Feed = () => {
   const [allPosts, setAllPosts] = useState([])
   const [searchText, setSearchText] = useState('')
@@ -64,6 +87,9 @@ const Feed = () => {
         regex.test(item.prompt)
     )
   }
+  
+  const extendedPosts = [...fakePosts, ...allPosts];
+  const extendedSearchResults = [...fakePosts, ...searchedResults];
 
   return (
     <section className='feed'>
@@ -80,12 +106,12 @@ const Feed = () => {
 
       {searchText ? (
         <PromptCardList
-          data={searchedResults}
+          data={extendedSearchResults}
           handleTagClick={handleTagClick}
         />
       ) : (
         <PromptCardList
-          data={allPosts}
+          data={extendedPosts}
           handleTagClick={handleTagClick}
         />
       )}

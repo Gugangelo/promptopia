@@ -5,6 +5,7 @@ const nextConfig = {
   //   serverComponentsExternalPackages: ['mongoose']
   // },
   images: {
+    domains: ["i.pravatar.cc"],
     // domains: ['lh3.googleusercontent.com'],
     remotePatterns: [
       {
